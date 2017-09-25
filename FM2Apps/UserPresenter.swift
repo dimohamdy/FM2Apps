@@ -45,8 +45,6 @@ class UserPresenter {
 protocol UserView: NSObjectProtocol {
     func startLoading()
     func finishLoading()
-//    func setUserData(user: User)
-//    func setTokenData(user: User)
     func drawRouteOfUser(route: Route)
 
 }
