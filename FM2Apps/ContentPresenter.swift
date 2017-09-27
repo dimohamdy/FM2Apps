@@ -6,7 +6,7 @@
 //  Copyright © 2017 BinaryBoy. All rights reserved.
 //
 
-import UIKit
+import RxSwift
 
 class ContentPresenter {
     private let contentService:ContentService
@@ -26,17 +26,43 @@ class ContentPresenter {
         contentView = nil
     }
     
-    func getContentData(){
-        self.contentView?.startLoading()
+    
+    func createContentObservable() -> Observable<String> {
         
-        contentService.getContentData { content in
-            self.contentData = content
-            self.contentView?.finishLoading()
-            self.contentView?.renderHTMLOfData(htmlData: content)
-            //            self.userView?.setUserData(user: user)
+        return Observable<String>.create({ (observer) -> Disposable in
+
             
-        }
+            self.contentService.createContentServiceObservable().subscribe(onNext: { contentData in
+                observer.onNext(contentData)
+                
+            }, onError: { error in
+                observer.onError(error)
+            }, onCompleted: {
+                //Complete the sequence
+                observer.onCompleted()
+            }, onDisposed: {
+                //Return an AnonymousDisposable
+            })
+            
+            
+        })
     }
+    
+    
+//    func getContentData(){
+//        self.contentView?.startLoading()
+//        
+//        
+//        
+//        
+//        contentService.getContentData { content in
+//            self.contentData = content
+//            self.contentView?.finishLoading()
+//            self.contentView?.renderHTMLOfData(htmlData: content)
+//            //            self.userView?.setUserData(user: user)
+//            
+//        }
+//    }
 }
 
 

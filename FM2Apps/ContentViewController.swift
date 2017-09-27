@@ -20,8 +20,13 @@ class ContentViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         contentPresenter.attachView(view: self)
-        contentPresenter.getContentData()
-        
+//        contentPresenter.getContentData()
+
+            
+            contentPresenter.createContentObservable().subscribe(onNext: { htmlData in
+                self.webView.loadHTMLString(htmlData, baseURL: nil)
+
+            })
 
     }
 

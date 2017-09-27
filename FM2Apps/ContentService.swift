@@ -28,7 +28,7 @@ class ContentService {
         
 
         RxAlamofire.request(.post, "http://151.236.222.252/mtc/aboutus/aboutUs", encoding: JSONEncoding.default, headers: headers).responseJSON().subscribe(onNext: { response in
-            debugPrint(response)
+//            debugPrint(response)
             // Map via ObjectMapper
             let result:ContentResult = Mapper<ContentResult>().map(JSONObject:response.result.value)!
             callBack((result.innerData?.first?.content)!)
@@ -37,5 +37,42 @@ class ContentService {
         
         
         
+    }
+    
+    
+    func createContentServiceObservable() -> Observable<String> {
+        
+        return Observable<String>.create({ (observer) -> Disposable in
+            
+            
+            
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer" + UserPresenter.tokenData!
+            ]
+            
+
+            
+            RxAlamofire.request(.post, "http://151.236.222.252/mtc/aboutus/aboutUs", encoding: JSONEncoding.default, headers: headers).responseJSON().subscribe(onNext: { response in
+                //            debugPrint(response)
+                // Map via ObjectMapper
+                let result:ContentResult = Mapper<ContentResult>().map(JSONObject:response.result.value)!
+                if result.status == true{
+                    observer.onNext((result.innerData?.first?.content)!)
+ 
+                }else{
+                    observer.onError(response.error!)
+
+                }
+                observer.onCompleted()
+
+//                callBack((result.innerData?.first?.content)!)
+            }).addDisposableTo(self.disposeBag)
+            
+
+            //Return an AnonymousDisposable
+            return Disposables.create(with: {
+                //Cancel the connection if disposed
+            })
+        })
     }
 }

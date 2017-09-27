@@ -6,7 +6,7 @@
 //  Copyright © 2017 BinaryBoy. All rights reserved.
 //
 
-import UIKit
+import RxSwift
 
 class UserPresenter {
     private let userService:UserService
@@ -14,8 +14,14 @@ class UserPresenter {
     private var userData:User?
     static var tokenData:String?
 
+    var routePath = Variable<[DropoffLocation]>([])
+    
+
+    
     init(userService:UserService){
         self.userService = userService
+        
+
     }
     
     func attachView(view:UserView){
@@ -25,20 +31,45 @@ class UserPresenter {
     func detachView() {
         userView = nil
     }
-    
-    func getUserData(){
-        self.userView?.startLoading()
+    func createUserObservable() -> Observable<User> {
+        
+        return Observable<User>.create({ (observer) -> Disposable in
+            
 
-        userService.getUserData { user,token in
-            UserPresenter.tokenData = token
-            self.userData = user
 
-            self.userView?.finishLoading()
-            self.userView?.drawRouteOfUser(route: (user.bus?.route)!)
-//            self.userView?.setUserData(user: user)
+            
+            self.userService.createUserServiceObservable().subscribe(onNext: { innerData in
+                UserPresenter.tokenData = innerData.token
 
-        }
+                observer.onNext(innerData.user!)
+
+            }, onError: { error in
+                observer.onError(error)
+            }, onCompleted: { 
+                //Complete the sequence
+                observer.onCompleted()
+            }, onDisposed: {
+                //Return an AnonymousDisposable
+            })
+            
+
+        })
     }
+
+
+//    func getUserData(){
+//        self.userView?.startLoading()
+//
+//        userService.getUserData { user,token in
+//            UserPresenter.tokenData = token
+//            self.userData = user
+//            self.routePath.value = (user.bus?.route?.routePath)!
+//            self.userView?.finishLoading()
+//            //self.userView?.drawRouteOfUser(route: (user.bus?.route)!)
+////            self.userView?.setUserData(user: user)
+//
+//        }
+//    }
 }
 
 

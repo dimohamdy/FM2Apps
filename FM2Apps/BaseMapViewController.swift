@@ -76,6 +76,19 @@ class BaseMapViewController: UIViewController {
         marker.map = mapView
         }
     }
+    func drawRoutePath(routePath:[DropoffLocation]) {
+        let path = GMSMutablePath()
+        for dropoffLocation:DropoffLocation in routePath {
+            path.addLatitude(  Double(dropoffLocation.lat!), longitude:Double(dropoffLocation.lng!))
+            
+        }
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 10.0
+        polyline.geodesic = true
+        polyline.map = mapView
+
+
+    }
     
     override func loadView() {
         // Create a GMSCameraPosition that tells the map to display the
