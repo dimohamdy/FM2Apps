@@ -22,22 +22,11 @@ class UserViewController: BaseMapViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-//        userPresenter.getUserData()
-        
-        
-//        userPresenter.routePath.asObservable().subscribe(onNext: { route in
-//            self.drawRoutePath(routePath: route)
-//            
-//        }).addDisposableTo(disposeBag)
-        
-        
+
         userPresenter.createUserObservable().subscribe(onNext: { user in
             self.drawRoute(route: (user.bus?.route)!)
         }).addDisposableTo(disposeBag)
 
-        
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -71,17 +60,3 @@ class UserViewController: BaseMapViewController {
 }
 
 
-//extension UserViewController: UserView {
-//    
-//    func startLoading(){
-//        NetworkActivityController.sharedController.registerActivity()
-//        
-//    }
-//    func finishLoading(){
-//        NetworkActivityController.sharedController.deregisterActivity()
-//        
-//    }
-//    func drawRouteOfUser(route: Route){
-//        self.drawRoute(route: route)
-//    }
-//}

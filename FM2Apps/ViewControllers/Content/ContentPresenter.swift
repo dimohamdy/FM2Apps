@@ -26,13 +26,7 @@ class ContentPresenter:BasePresenter {
 
     }
     
-//    func attachView(view:ContentView){
-//        contentView = view
-//    }
-//    
-//    func detachView() {
-//        contentView = nil
-//    }
+
     
     
     func createContentObservable() -> Observable<String> {
@@ -55,28 +49,8 @@ class ContentPresenter:BasePresenter {
             
         })
     }
-    
-    
-//    func getContentData(){
-//        self.contentView?.startLoading()
-//        
-//        
-//        
-//        
-//        contentService.getContentData { content in
-//            self.contentData = content
-//            self.contentView?.finishLoading()
-//            self.contentView?.renderHTMLOfData(htmlData: content)
-//            //            self.userView?.setUserData(user: user)
-//            
-//        }
-//    }
+
 }
 
 
-//protocol ContentView: NSObjectProtocol {
-//    func startLoading()
-//    func finishLoading()
-//    func renderHTMLOfData(htmlData: String)
-//    
-//}
+

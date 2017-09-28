@@ -45,7 +45,6 @@ class ContentService {
 
                 observer.onCompleted()
 
-//                callBack((result.innerData?.first?.content)!)
             }).addDisposableTo(self.disposeBag)
             
 

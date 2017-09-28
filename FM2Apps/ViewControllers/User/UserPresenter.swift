@@ -10,7 +10,6 @@ import RxSwift
 
 class UserPresenter:BasePresenter {
     private let userService:UserService
-//    weak private var userView : UserView?
     private var userData:User?
     static var tokenData:String?
 
@@ -57,25 +56,8 @@ class UserPresenter:BasePresenter {
     }
 
 
-//    func getUserData(){
-//        self.userView?.startLoading()
-//
-//        userService.getUserData { user,token in
-//            UserPresenter.tokenData = token
-//            self.userData = user
-//            self.routePath.value = (user.bus?.route?.routePath)!
-//            self.userView?.finishLoading()
-//            //self.userView?.drawRouteOfUser(route: (user.bus?.route)!)
-////            self.userView?.setUserData(user: user)
-//
-//        }
-//    }
+
 }
 
 
-//protocol UserView: NSObjectProtocol {
-//    func startLoading()
-//    func finishLoading()
-//    func drawRouteOfUser(route: Route)
-//
-//}
+

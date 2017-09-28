@@ -11,22 +11,22 @@ import GoogleMaps
 import Reachability
 
 class BaseMapViewController: UIViewController {
-
+    
     var mapView:GMSMapView? = nil
     //declare this property where it won't go out of scope relative to your listener
     private let reachability  = Reachability(hostname: "google.com")
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setupReachability()
     }
-
+    
     func setupReachability() {
-
+        
         reachability?.whenReachable = { reachability in
-
+            
             SingletonBanner.sharedInstance.setTitle("Have internet connnection")
             SingletonBanner.sharedInstance.banner.dismiss()
         }
@@ -46,33 +46,21 @@ class BaseMapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
     func drawRoute(route:Route) {
         let path = GMSMutablePath()
         
         let dropoffLocation = route.routePath?.first
         let myLocation = CLLocationCoordinate2D(latitude: Double((dropoffLocation?.lat!)!), longitude: Double((dropoffLocation?.lng!)!))
-
+        
         var bounds: GMSCoordinateBounds = GMSCoordinateBounds(coordinate: myLocation, coordinate: myLocation)
-        
 
-        
-        
         for dropoffLocation:DropoffLocation in route.routePath! {
             path.addLatitude(  Double(dropoffLocation.lat!), longitude:Double(dropoffLocation.lng!))
             
             bounds = bounds.includingCoordinate(CLLocationCoordinate2D(latitude: Double(dropoffLocation.lat!), longitude: Double(dropoffLocation.lng!))
-)
+            )
             self.mapView?.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 15.0))
         }
         let polyline = GMSPolyline(path: path)
@@ -81,12 +69,10 @@ class BaseMapViewController: UIViewController {
         polyline.map = mapView
         
 
-        
-        
         for stopPoint:StopPoint in route.stopPoints! {
-        let position = CLLocationCoordinate2D(latitude: Double(stopPoint.lat!), longitude: Double(stopPoint.lng!))
-        let marker = GMSMarker(position: position)
-        marker.map = mapView
+            let position = CLLocationCoordinate2D(latitude: Double(stopPoint.lat!), longitude: Double(stopPoint.lng!))
+            let marker = GMSMarker(position: position)
+            marker.map = mapView
         }
     }
     
@@ -94,9 +80,9 @@ class BaseMapViewController: UIViewController {
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
         let camera = GMSCameraPosition.camera(withLatitude: 30.00, longitude: 31.48, zoom: 16.0)
-         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
-
+        
     }
-
+    
 }
