@@ -8,9 +8,9 @@
 
 import RxSwift
 
-class UserPresenter {
+class UserPresenter:BasePresenter {
     private let userService:UserService
-    weak private var userView : UserView?
+//    weak private var userView : UserView?
     private var userData:User?
     static var tokenData:String?
 
@@ -21,16 +21,16 @@ class UserPresenter {
     init(userService:UserService){
         self.userService = userService
         
+        super.init()
+        self.loading = false
+        _ =  userService.loading.asObservable().subscribe(onNext: {
+            loadingValue in
+            self.loading  = loadingValue
+            
+        })
+    }
+    
 
-    }
-    
-    func attachView(view:UserView){
-        userView = view
-    }
-    
-    func detachView() {
-        userView = nil
-    }
     func createUserObservable() -> Observable<User> {
         
         return Observable<User>.create({ (observer) -> Disposable in
@@ -73,9 +73,9 @@ class UserPresenter {
 }
 
 
-protocol UserView: NSObjectProtocol {
-    func startLoading()
-    func finishLoading()
-    func drawRouteOfUser(route: Route)
-
-}
+//protocol UserView: NSObjectProtocol {
+//    func startLoading()
+//    func finishLoading()
+//    func drawRouteOfUser(route: Route)
+//
+//}

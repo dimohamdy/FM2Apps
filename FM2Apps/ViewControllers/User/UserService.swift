@@ -15,6 +15,7 @@ import RxAlamofire
 class UserService {
     
     let disposeBag = DisposeBag()
+    var loading:Variable<Bool> = Variable(false)
 
     
     
@@ -22,7 +23,8 @@ class UserService {
         
         return Observable<InnerData>.create({ (observer) -> Disposable in
             
-            
+            self.loading.value = true
+
             
             let body: Parameters = [
                 "name":"Hend",
@@ -44,7 +46,7 @@ class UserService {
                 }else{
                  observer.onError(response.error!)
                 }
-                
+                self.loading.value = false
                 observer.onCompleted()
 
 

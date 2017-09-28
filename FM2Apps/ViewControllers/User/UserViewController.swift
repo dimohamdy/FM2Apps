@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PKNetworkActivityController
 import ActionKit
 import RxSwift
 import SnapKit
@@ -24,7 +23,6 @@ class UserViewController: BaseMapViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        userPresenter.attachView(view: self)
 //        userPresenter.getUserData()
         
         
@@ -73,17 +71,17 @@ class UserViewController: BaseMapViewController {
 }
 
 
-extension UserViewController: UserView {
-    
-    func startLoading(){
-        NetworkActivityController.sharedController.registerActivity()
-        
-    }
-    func finishLoading(){
-        NetworkActivityController.sharedController.deregisterActivity()
-        
-    }
-    func drawRouteOfUser(route: Route){
-        self.drawRoute(route: route)
-    }
-}
+//extension UserViewController: UserView {
+//    
+//    func startLoading(){
+//        NetworkActivityController.sharedController.registerActivity()
+//        
+//    }
+//    func finishLoading(){
+//        NetworkActivityController.sharedController.deregisterActivity()
+//        
+//    }
+//    func drawRouteOfUser(route: Route){
+//        self.drawRoute(route: route)
+//    }
+//}

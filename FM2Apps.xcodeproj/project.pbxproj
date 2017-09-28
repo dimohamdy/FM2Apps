@@ -33,6 +33,7 @@
 		3D541CF71F76F65C005283D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D541CF61F76F65C005283D5 /* Assets.xcassets */; };
 		3D541CFA1F76F65C005283D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D541CF81F76F65C005283D5 /* LaunchScreen.storyboard */; };
 		3D541D051F76F65D005283D5 /* FM2AppsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D541D041F76F65D005283D5 /* FM2AppsUITests.swift */; };
+		3D74DEE21F7CF7B9003460D5 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74DEE11F7CF7B9003460D5 /* BasePresenter.swift */; };
 		B31FDB5D0F74709A690688E8 /* Pods_FM2Apps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757CE0AAE92C9B07D73FF690 /* Pods_FM2Apps.framework */; };
 		F7FD0F92B460F9D7A1C596D2 /* Pods_FM2AppsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 208290F846F33DDFDBEA7FC3 /* Pods_FM2AppsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		3D541D001F76F65D005283D5 /* FM2AppsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FM2AppsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D541D041F76F65D005283D5 /* FM2AppsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM2AppsUITests.swift; sourceTree = "<group>"; };
 		3D541D061F76F65D005283D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D74DEE11F7CF7B9003460D5 /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		5DB4DA3C63609472A0F1D8F4 /* Pods-FM2AppsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FM2AppsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FM2AppsUITests/Pods-FM2AppsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		757CE0AAE92C9B07D73FF690 /* Pods_FM2Apps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FM2Apps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BF10CAB8D20CEAFFEB7176 /* Pods-FM2Apps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FM2Apps.release.xcconfig"; path = "Pods/Target Support Files/Pods-FM2Apps/Pods-FM2Apps.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,7 +124,6 @@
 				3D53CDC21F77CBCA00C28E7C /* UserService.swift */,
 				3D541CF11F76F65C005283D5 /* UserViewController.swift */,
 			);
-			name = User;
 			path = User;
 			sourceTree = "<group>";
 		};
@@ -133,7 +134,6 @@
 				3D53CDFA1F78F52B00C28E7C /* ContentService.swift */,
 				3D53CDF61F78745500C28E7C /* ContentViewController.swift */,
 			);
-			name = Content;
 			path = Content;
 			sourceTree = "<group>";
 		};
@@ -196,8 +196,8 @@
 				3D53CDF91F78F51700C28E7C /* Content */,
 				3D53CDF81F78F4EE00C28E7C /* User */,
 				3D53CDF21F77D42100C28E7C /* BaseMapViewController.swift */,
+				3D74DEE11F7CF7B9003460D5 /* BasePresenter.swift */,
 			);
-			name = ViewControllers;
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
@@ -216,7 +216,6 @@
 				3D53CDE31F77CBF000C28E7C /* Supervisor.swift */,
 				3D53CDE41F77CBF000C28E7C /* User.swift */,
 			);
-			name = UserModels;
 			path = UserModels;
 			sourceTree = "<group>";
 		};
@@ -225,7 +224,6 @@
 			children = (
 				3D53CDF41F786FE800C28E7C /* SingletonBanner.swift */,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -464,6 +462,7 @@
 				3D53CDEB1F77CBF000C28E7C /* Route.swift in Sources */,
 				3D541CF21F76F65C005283D5 /* UserViewController.swift in Sources */,
 				3D53CDE61F77CBF000C28E7C /* InnerData.swift in Sources */,
+				3D74DEE21F7CF7B9003460D5 /* BasePresenter.swift in Sources */,
 				3D53CDFF1F78FA5C00C28E7C /* ContentInnerData.swift in Sources */,
 				3D541CF01F76F65C005283D5 /* AppDelegate.swift in Sources */,
 				3D53CDEF1F77CBF000C28E7C /* User.swift in Sources */,

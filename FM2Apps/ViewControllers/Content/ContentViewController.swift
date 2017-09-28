@@ -19,11 +19,11 @@ class ContentViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        contentPresenter.attachView(view: self)
+//        contentPresenter.attachView(view: self)
 //        contentPresenter.getContentData()
 
             
-            contentPresenter.createContentObservable().subscribe(onNext: { htmlData in
+          _ =  contentPresenter.createContentObservable().subscribe(onNext: { htmlData in
                 self.webView.loadHTMLString(htmlData, baseURL: nil)
 
             })
@@ -48,17 +48,17 @@ class ContentViewController: UIViewController {
 
 }
 
-extension ContentViewController: ContentView {
-    
-    func startLoading(){
-        NetworkActivityController.sharedController.registerActivity()
-        
-    }
-    func finishLoading(){
-        NetworkActivityController.sharedController.deregisterActivity()
-        
-    }
-    func renderHTMLOfData(htmlData: String){
-        webView.loadHTMLString(htmlData, baseURL: nil)
-    }
-}
+//extension ContentViewController: ContentView {
+//    
+//    func startLoading(){
+//        NetworkActivityController.sharedController.registerActivity()
+//        
+//    }
+//    func finishLoading(){
+//        NetworkActivityController.sharedController.deregisterActivity()
+//        
+//    }
+//    func renderHTMLOfData(htmlData: String){
+//        webView.loadHTMLString(htmlData, baseURL: nil)
+//    }
+//}

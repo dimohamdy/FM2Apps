@@ -8,23 +8,31 @@
 
 import RxSwift
 
-class ContentPresenter {
+class ContentPresenter:BasePresenter {
     private let contentService:ContentService
-    weak private var contentView : ContentView?
+//    weak private var contentView : ContentView?
     private var contentData:String?
 //    private var tokenData:String?
     
     init(contentService:ContentService){
         self.contentService = contentService
+        super.init()
+        self.loading = false
+      _ =  contentService.loading.asObservable().subscribe(onNext: {
+            loadingValue in
+            self.loading  = loadingValue
+        
+        })
+
     }
     
-    func attachView(view:ContentView){
-        contentView = view
-    }
-    
-    func detachView() {
-        contentView = nil
-    }
+//    func attachView(view:ContentView){
+//        contentView = view
+//    }
+//    
+//    func detachView() {
+//        contentView = nil
+//    }
     
     
     func createContentObservable() -> Observable<String> {
@@ -66,9 +74,9 @@ class ContentPresenter {
 }
 
 
-protocol ContentView: NSObjectProtocol {
-    func startLoading()
-    func finishLoading()
-    func renderHTMLOfData(htmlData: String)
-    
-}
+//protocol ContentView: NSObjectProtocol {
+//    func startLoading()
+//    func finishLoading()
+//    func renderHTMLOfData(htmlData: String)
+//    
+//}
