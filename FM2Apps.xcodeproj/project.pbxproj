@@ -110,39 +110,31 @@
 			isa = PBXGroup;
 			children = (
 				3D53CDFC1F78FA5C00C28E7C /* ContentModels */,
-				3D53CDDA1F77CBF000C28E7C /* DropoffLocation.swift */,
-				3D53CDDB1F77CBF000C28E7C /* InnerData.swift */,
-				3D53CDDC1F77CBF000C28E7C /* Pivot.swift */,
-				3D53CDDD1F77CBF000C28E7C /* Result.swift */,
-				3D53CDDE1F77CBF000C28E7C /* Role.swift */,
-				3D53CDDF1F77CBF000C28E7C /* Organization.swift */,
-				3D53CDE01F77CBF000C28E7C /* Route.swift */,
-				3D53CDE11F77CBF000C28E7C /* StopPoint.swift */,
-				3D53CDE21F77CBF000C28E7C /* Bus.swift */,
-				3D53CDE31F77CBF000C28E7C /* Supervisor.swift */,
-				3D53CDE41F77CBF000C28E7C /* User.swift */,
+				3D74DEDF1F7CE5D1003460D5 /* UserModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		3D53CDF81F78F4EE00C28E7C /* New Group */ = {
+		3D53CDF81F78F4EE00C28E7C /* User */ = {
 			isa = PBXGroup;
 			children = (
-				3D541CF11F76F65C005283D5 /* UserViewController.swift */,
 				3D53CDF01F77D29D00C28E7C /* UserPresenter.swift */,
 				3D53CDC21F77CBCA00C28E7C /* UserService.swift */,
+				3D541CF11F76F65C005283D5 /* UserViewController.swift */,
 			);
-			name = "New Group";
+			name = User;
+			path = User;
 			sourceTree = "<group>";
 		};
-		3D53CDF91F78F51700C28E7C /* New Group1 */ = {
+		3D53CDF91F78F51700C28E7C /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				3D53CDF61F78745500C28E7C /* ContentViewController.swift */,
 				3D53CE011F78FBC100C28E7C /* ContentPresenter.swift */,
 				3D53CDFA1F78F52B00C28E7C /* ContentService.swift */,
+				3D53CDF61F78745500C28E7C /* ContentViewController.swift */,
 			);
-			name = "New Group1";
+			name = Content;
+			path = Content;
 			sourceTree = "<group>";
 		};
 		3D53CDFC1F78FA5C00C28E7C /* ContentModels */ = {
@@ -159,9 +151,9 @@
 			children = (
 				3D541CEE1F76F65C005283D5 /* FM2Apps */,
 				3D541D031F76F65D005283D5 /* FM2AppsUITests */,
-				3D541CED1F76F65C005283D5 /* Products */,
-				424CF0EAACE2708FF41FD0C0 /* Pods */,
 				84BF9B3457402DFD87483DB4 /* Frameworks */,
+				424CF0EAACE2708FF41FD0C0 /* Pods */,
+				3D541CED1F76F65C005283D5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,15 +170,13 @@
 			isa = PBXGroup;
 			children = (
 				3D53CDAB1F77C45200C28E7C /* Models */,
+				3D74DEE01F7CE5E7003460D5 /* Utils */,
+				3D74DEDE1F7CE59F003460D5 /* ViewControllers */,
 				3D541CEF1F76F65C005283D5 /* AppDelegate.swift */,
-				3D53CDF21F77D42100C28E7C /* BaseMapViewController.swift */,
-				3D53CDF41F786FE800C28E7C /* SingletonBanner.swift */,
-				3D53CDF81F78F4EE00C28E7C /* New Group */,
-				3D53CDF91F78F51700C28E7C /* New Group1 */,
-				3D541CF31F76F65C005283D5 /* Main.storyboard */,
 				3D541CF61F76F65C005283D5 /* Assets.xcassets */,
-				3D541CF81F76F65C005283D5 /* LaunchScreen.storyboard */,
 				3D541CFB1F76F65C005283D5 /* Info.plist */,
+				3D541CF81F76F65C005283D5 /* LaunchScreen.storyboard */,
+				3D541CF31F76F65C005283D5 /* Main.storyboard */,
 			);
 			path = FM2Apps;
 			sourceTree = "<group>";
@@ -198,6 +188,45 @@
 				3D541D061F76F65D005283D5 /* Info.plist */,
 			);
 			path = FM2AppsUITests;
+			sourceTree = "<group>";
+		};
+		3D74DEDE1F7CE59F003460D5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D53CDF91F78F51700C28E7C /* Content */,
+				3D53CDF81F78F4EE00C28E7C /* User */,
+				3D53CDF21F77D42100C28E7C /* BaseMapViewController.swift */,
+			);
+			name = ViewControllers;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3D74DEDF1F7CE5D1003460D5 /* UserModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D53CDE21F77CBF000C28E7C /* Bus.swift */,
+				3D53CDDA1F77CBF000C28E7C /* DropoffLocation.swift */,
+				3D53CDDB1F77CBF000C28E7C /* InnerData.swift */,
+				3D53CDDF1F77CBF000C28E7C /* Organization.swift */,
+				3D53CDDC1F77CBF000C28E7C /* Pivot.swift */,
+				3D53CDDD1F77CBF000C28E7C /* Result.swift */,
+				3D53CDDE1F77CBF000C28E7C /* Role.swift */,
+				3D53CDE01F77CBF000C28E7C /* Route.swift */,
+				3D53CDE11F77CBF000C28E7C /* StopPoint.swift */,
+				3D53CDE31F77CBF000C28E7C /* Supervisor.swift */,
+				3D53CDE41F77CBF000C28E7C /* User.swift */,
+			);
+			name = UserModels;
+			path = UserModels;
+			sourceTree = "<group>";
+		};
+		3D74DEE01F7CE5E7003460D5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3D53CDF41F786FE800C28E7C /* SingletonBanner.swift */,
+			);
+			name = Utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		424CF0EAACE2708FF41FD0C0 /* Pods */ = {
@@ -474,6 +503,7 @@
 				3D541CF41F76F65C005283D5 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		3D541CF81F76F65C005283D5 /* LaunchScreen.storyboard */ = {
@@ -482,6 +512,7 @@
 				3D541CF91F76F65C005283D5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
